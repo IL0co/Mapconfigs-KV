@@ -8,14 +8,14 @@
 <br />
 
 <p align="center">
-<img src="https://img.shields.io/github/downloads/IL0co/FRS-Core/total?style=flat-square" /></a>
-<a href="../../releases"><img src="https://img.shields.io/github/release/IL0co/FRS-Core?style=flat-square"/></a>
-<a href="../../issues"><img src="https://img.shields.io/github/issues/IL0co/FRS-Core?style=flat-square" /></a>
-<a href="../../pulls"><img src="https://img.shields.io/github/issues-pr/IL0co/FRS-Core?style=flat-square" /></a> 
+<img src="https://img.shields.io/github/downloads/IL0co/Mapconfigs-KV/total?style=flat-square" /></a>
+<a href="../../releases"><img src="https://img.shields.io/github/release/IL0co/Mapconfigs-KV?style=flat-square"/></a>
+<a href="../../issues"><img src="https://img.shields.io/github/issues/IL0co/Mapconfigs-KV?style=flat-square" /></a>
+<a href="../../pulls"><img src="https://img.shields.io/github/issues-pr/IL0co/Mapconfigs-KV?style=flat-square" /></a> 
 </p>
 
 ## Description
-* Allows you to have configuration files for each card; there is support for prefixes and partial names. All settings are changed in one KV file.
+* Allows you to have configuration files for each card; there is support for prefixes and partial names. **All settings are changed in one KV file.**
 * The analogue of [this](https://forums.alliedmods.net/showthread.php?p=607079) plugin.
 <br>
 
