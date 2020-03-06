@@ -16,7 +16,6 @@ KeyValues kv;
 
 public void OnPluginStart() 
 {
-	HookEvent("cs_win_panel_match", Event_CsWinPanelMatch);
 	LoagKv();
 	ExecuteMapSpecificConfigs();
 }
@@ -26,14 +25,13 @@ public void OnAutoConfigsBuffered()
 	ExecuteMapSpecificConfigs();
 }
 
-public void Event_CsWinPanelMatch(Event event, char[] name, bool dontBroadcast)
+public void OnMapEnd()
 {
 	LoagKv();
 }
 
 stock void ExecuteMapSpecificConfigs() 
 {
-	LoagKv();
 	char iMap[128];
 	GetCurrentMap(iMap, sizeof(iMap));
 
@@ -69,6 +67,8 @@ stock void ExecuteMapSpecificConfigs()
 		}
 		while(kv.GotoNextKey());
 	} 
+	
+	delete kv;
 }
 
 stock void LoagKv()
