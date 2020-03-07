@@ -32,15 +32,9 @@ public void OnMapEnd()
 
 stock void ExecuteMapSpecificConfigs() 
 {
-	char iMap[128];
-	GetCurrentMap(iMap, sizeof(iMap));
-
-	if(iMap[0] == 'w' && iMap[1] == 'o')
-	{
-		char buff[3][128];
-		ExplodeString(iMap, "/", buff, 3, sizeof(buff[]));
-		iMap = buff[2];
-	}
+	char szMap[128];
+	GetCurrentMap(szMap, sizeof(szMap));
+	ApplyMapNameFix(szMap, sizeof(szMap));
 
 	char buffMapName[32], buffCmdName[64], buffCmdValue[32];
 
@@ -50,7 +44,7 @@ stock void ExecuteMapSpecificConfigs()
 		do
 		{
 			kv.GetSectionName(buffMapName, sizeof(buffMapName));
-			if(StrContains(iMap, buffMapName, false) != -1 && kv.GotoFirstSubKey(false))
+			if(StrContains(szMap, buffMapName, false) != -1 && kv.GotoFirstSubKey(false))
 			{	
 				do
 				{
@@ -69,6 +63,25 @@ stock void ExecuteMapSpecificConfigs()
 	} 
 	
 	delete kv;
+}
+
+stock void ApplyMapNameFix(char[] szMapNameBuffer, int iBufferLength)
+{
+	// First, try find UNIX slash.
+	int iSlashPos = FindCharInString(szMapNameBuffer, '/', true);
+	if (iSlashPos == -1)
+	{
+		// Then, Windows.
+		iSlashPos = FindCharInString(szMapNameBuffer, '\\', true);
+		if (iSlashPos == -1)
+		{
+			// No one slash has found.
+			return;
+		}
+	}
+
+	// Apply fix.
+	strcopy(szMapNameBuffer, iBufferLength, szMapNameBuffer[iSlashPos+1]);
 }
 
 stock void LoagKv()
