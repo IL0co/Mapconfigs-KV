@@ -22,6 +22,9 @@ public void OnPluginStart()
 
 public void OnAutoConfigsBuffered() 
 {
+	if(!kv)
+		LoagKv();
+		
 	ExecuteMapSpecificConfigs();
 }
 
